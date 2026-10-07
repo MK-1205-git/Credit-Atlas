@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credit-atlas"
+version = "1.0.0"
+description = "Reproducible structural credit risk: Merton calibration and correlated Monte Carlo"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "scipy>=1.10,<2", "pandas>=2,<4", "plotly>=5,<7", "requests>=2.31,<3", "yfinance>=0.2.54,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+credit-atlas = "creditrisk.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["creditrisk*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
